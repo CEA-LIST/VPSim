@@ -29,7 +29,7 @@ Now your environment is set, please follow the following steps:
 
     ```sh
     git clone git@github.com:CEA-LIST/VPSim.git
-    cd vpsim
+    cd VPSim
     git submodule init
     git submodule update --recursive
     ```
