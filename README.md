@@ -32,7 +32,7 @@ Now your environment is set, please follow the following steps:
     git submodule update --recursive
     ```
 
-2. Build targets and copy artifacts to the release directory [./vpsim-release](./vpsim-release) sub-directory:
+2. Build targets and copy artifacts to the release directory [VPSim/vpsim-release](https://github.com/CEA-LIST/vpsim-release.git) sub-directory:
 
     to do so, we configured a custom command in CMakeLists that rename and copy the targets to the appropriate folder in the release test environment
     ```sh
@@ -44,4 +44,4 @@ Now your environment is set, please follow the following steps:
 
 # Getting to test VPSim and run your first simulation
 - To try VPSim and customize your architecture to simulate, please follow the `README.md` file in the following sub-directory:
-  - [vpsim-release](https://github.com/CEA-LIST/vpsim-release.git)
+  - [VPSim/vpsim-release](https://github.com/CEA-LIST/vpsim-release.git)
