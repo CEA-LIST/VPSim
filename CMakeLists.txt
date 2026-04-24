@@ -21,12 +21,12 @@ add_custom_target(qemu
     # COMMAND git checkout ${QEMU_BRANCH}
     COMMAND ${QEMU_SOURCE_DIR}/configure --target-list=aarch64-softmmu
         --disable-sparse --disable-sdl --disable-gtk --disable-vnc --disable-xen
-        --disable-brlapi --disable-vnc-sasl --disable-vnc-jpeg --disable-vnc-png
+        --disable-brlapi --disable-vnc-sasl --disable-vnc-jpeg
         --disable-curses --disable-curl --disable-kvm --disable-bsd-user
-        --disable-pie --disable-coroutine-pool --disable-attr --disable-blobs --disable-docs
+        --disable-coroutine-pool --disable-attr --disable-docs
         --disable-spice --disable-usb-redir --disable-guest-agent --disable-cap-ng --disable-libiscsi
         --disable-libusb --disable-werror ${QEMU_ENABLE_DEBUG}
-    COMMAND make
+    COMMAND make qemu-system-aarch64
     WORKING_DIRECTORY ${QEMU_BINARY_DIR}
 )
 
@@ -40,7 +40,7 @@ add_subdirectory(${VPSIM_SOURCE_DIR} ${VPSIM_BINARY_DIR})
 # target to copy artifacts to release directory
 add_custom_target(copy_artifacts
     COMMAND ${CMAKE_COMMAND} -E echo "Copying vpsim and qemu artifacts to release directory"
-    COMMAND ${CMAKE_COMMAND} -E copy ${QEMU_BINARY_DIR}/aarch64-softmmu/qemu-system-aarch64 ${INSTALL_RELEASE_DIR}/lib/qemu/vpsim-qemu.so
+    COMMAND ${CMAKE_COMMAND} -E copy ${QEMU_BINARY_DIR}/qemu-system-aarch64 ${INSTALL_RELEASE_DIR}/lib/qemu/vpsim-qemu.so
     COMMAND ${CMAKE_COMMAND} -E copy ${VPSIM_BINARY_DIR}/vpsim ${INSTALL_RELEASE_DIR}/bin
     DEPENDS qemu vpsim
 )

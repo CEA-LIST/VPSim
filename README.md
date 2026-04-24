@@ -10,15 +10,7 @@ VPSim is a digital architecture design environment used to speed up design space
 - To build VPSim & the modified QEMU on a fresh Ubuntu 22.04 LTS installation, you will need to install these libraries:
 
     ```sh
-    apt install -y pkg-config libglib2.0-dev libpixman-1-dev
-    ```
-- For the modified qemu, as it is based on an old version you will need Python2 to be installed :
-    ```sh
-    apt install -y python2
-    ```
-    and export it in your shell:
-    ```sh
-    export PYTHON=/usr/bin/python2
+    apt install -y pkg-config libglib2.0-dev libpixman-1-dev ninja-build
     ```
 Now your environment is set, please follow the following steps:
 
