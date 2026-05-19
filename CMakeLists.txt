@@ -26,7 +26,8 @@ add_custom_target(qemu
         --disable-coroutine-pool --disable-attr --disable-docs
         --disable-spice --disable-usb-redir --disable-guest-agent --disable-cap-ng --disable-libiscsi
         --disable-libusb --disable-werror ${QEMU_ENABLE_DEBUG}
-    COMMAND make qemu-system-aarch64
+    COMMAND make libvpsim-aarch64.so
+    COMMAND make contrib-plugins
     WORKING_DIRECTORY ${QEMU_BINARY_DIR}
 )
 
@@ -40,7 +41,8 @@ add_subdirectory(${VPSIM_SOURCE_DIR} ${VPSIM_BINARY_DIR})
 # target to copy artifacts to release directory
 add_custom_target(copy_artifacts
     COMMAND ${CMAKE_COMMAND} -E echo "Copying vpsim and qemu artifacts to release directory"
-    COMMAND ${CMAKE_COMMAND} -E copy ${QEMU_BINARY_DIR}/qemu-system-aarch64 ${INSTALL_RELEASE_DIR}/lib/qemu/vpsim-qemu.so
+    COMMAND ${CMAKE_COMMAND} -E copy ${QEMU_BINARY_DIR}/libvpsim-aarch64.so ${INSTALL_RELEASE_DIR}/lib/qemu/libvpsim-aarch64.so
+    COMMAND ${CMAKE_COMMAND} -E copy ${QEMU_BINARY_DIR}/contrib/plugins/libvpsimplugin.so ${INSTALL_RELEASE_DIR}/lib/qemu/libvpsimplugin.so
     COMMAND ${CMAKE_COMMAND} -E copy ${VPSIM_BINARY_DIR}/vpsim ${INSTALL_RELEASE_DIR}/bin
     DEPENDS qemu vpsim
 )
